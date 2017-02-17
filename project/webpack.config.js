@@ -7,7 +7,10 @@ module.exports = {
   ],
   output: { path: __dirname, filename: 'bundle.js' },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      react: path.resolve('../node_modules/react'),
+    },
   },
   module: {
     loaders: [
