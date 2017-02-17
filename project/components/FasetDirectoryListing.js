@@ -190,13 +190,10 @@ class FasetDirectoryListing extends React.Component {
 
 FasetDirectoryListing.defaultProps = {
     config: {
-
       mode: 'global',
       owner_id: null,
       event: null,
     },
-    favorites: [],
-    infoText: null,
     filters:  [],
 };
 
