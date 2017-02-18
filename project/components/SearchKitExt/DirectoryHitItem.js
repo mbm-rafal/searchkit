@@ -66,7 +66,7 @@ export default class HitItem extends React.Component {
                       {props.result._source.events.map((event, index) =>
                           event.items.map((bopp,boppindex) =>
                               <EventItem
-                                  key={"business_opportunity"+boppindex}
+                                  key={"item"+boppindex}
                                   name={bopp.name}
                               />
                           )

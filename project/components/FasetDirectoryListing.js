@@ -65,14 +65,16 @@ class FasetDirectoryListing extends React.Component {
                     <ActionBarRow>
                       <GroupedSelectedFilters/>
                       <ResetFilters/>
+
+                      <HitsStats />
                     </ActionBarRow>
 
                     <ActionBarRow>
                         <MenuFilter
                             id="role"
                             title="Role"
-                            operator="OR"
                             field="events.role.name"
+                            operator="AND"
                             fieldOptions={{
                               type:'nested',
                               options:{
@@ -117,6 +119,7 @@ class FasetDirectoryListing extends React.Component {
                       <RefinementListFilter
                           id="profile_attributes_pc"
                           title={"Test"}
+                          operator="AND"
                           field="events.profile_attributes.product_certs.attributes.key"
                           listComponent={CheckboxItemList}
                           size={5}
@@ -135,8 +138,8 @@ class FasetDirectoryListing extends React.Component {
                         id="categories"
                         title="CATEGORIES"
                         field="events.categories.value"
+                        operator="AND"
                         listComponent={MultiSelect}
-                        operator="OR"
                         size={10000}
                         fieldOptions={{
                           type:'nested',
@@ -165,7 +168,7 @@ class FasetDirectoryListing extends React.Component {
                     <RefinementListFilter
                         id="event_name"
                         title="Events"
-                        operator="OR"
+                        operator="AND"
                         field="events.name"
                         listComponent={CheckboxItemList}
                         fieldOptions={{

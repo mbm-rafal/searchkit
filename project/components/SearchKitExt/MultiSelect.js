@@ -23,17 +23,13 @@ export default class MultiSelect extends React.Component {
     })
 
     return (
-      <div>ISSUE</div>
+      <Select multi disabled={disabled}
+           value={selectedItems}
+           placeholder={placeholder}
+           options={options}
+           valueRenderer={(v) => translate(v.value)}
+           clearable={clearable}
+           onChange={this.handleChange} />
     )
-
-    {/*
-    <Select multi disabled={disabled}
-      value={selectedItems}
-      placeholder={placeholder}
-      options={options}
-      valueRenderer={(v) => translate(v.value)}
-      clearable={clearable}
-      onChange={this.handleChange} />
-    */}
   }
 }
