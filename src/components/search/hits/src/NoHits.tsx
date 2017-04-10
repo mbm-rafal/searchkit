@@ -19,14 +19,16 @@ export interface NoHitsProps extends SearchkitComponentProps {
 	suggestionsField?:string
 	errorComponent?: ReactComponentType<NoHitsErrorDisplayProps>
 	component?: ReactComponentType<NoHitsDisplayProps>
+	onResetSearch?:Function
 }
 
 export class NoHits extends SearchkitComponent<NoHitsProps, any> {
 	noFiltersAccessor:NoFiltersHitCountAccessor
 	suggestionsAccessor:SuggestionsAccessor
-  bemBlocks: {
-    container: Function
-  }
+	bemBlocks: {
+		container: Function
+	}
+	onResetSearch: Function
 
 	static translations = {
 		"NoHits.NoResultsFound":"No results found for {query}.",
@@ -47,7 +49,11 @@ export class NoHits extends SearchkitComponent<NoHitsProps, any> {
 
 	static defaultProps = {
 		errorComponent: NoHitsErrorDisplay,
-		component: NoHitsDisplay
+		component: NoHitsDisplay,
+		onResetSearch:function() {
+			this.searchkit.getQueryAccessor().resetState()
+			this.searchkit.performSearch(true)
+		}
 	}
 
 	componentWillMount(){
@@ -84,8 +90,7 @@ export class NoHits extends SearchkitComponent<NoHitsProps, any> {
 	}
 
 	resetSearch() {
-		this.searchkit.getQueryAccessor().resetState()
-		this.searchkit.performSearch(true)
+		this.props.onResetSearch.call(this);
 	}
 
 	getFilterCount() {

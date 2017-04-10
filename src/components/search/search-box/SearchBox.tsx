@@ -166,7 +166,6 @@ export class SearchBox extends SearchkitComponent<SearchBoxProps, any> {
           value={this.getValue()}
           onFocus={this.setFocusState.bind(this, true)}
           onBlur={this.setFocusState.bind(this, false)}
-          ref="queryField"
           autoFocus={this.props.autofocus}
           onInput={this.onChange.bind(this)}/>
           <input type="submit" value="search" className={block("action")} data-qa="submit"/>

@@ -25,10 +25,12 @@ export class AxiosESTransport extends ESTransport{
     })
 
     const credentials = AxiosESTransport.parseCredentials(this.options)
+
     const config = defaults(credentials, {
       baseURL:this.host,
       timeout:this.options.timeout,
-      headers:this.options.headers
+      headers:this.options.headers,
+      withCredentials: true
     })
     this.axios = axios.create(config)
   }

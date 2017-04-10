@@ -18,6 +18,9 @@ module.exports = {
     css: 'theme.css'
   },
   resolve: {
+    alias: {
+      react: path.resolve('../react'),
+    },
     extensions:[".js", ".ts", ".tsx","", ".webpack.js", ".web.js", ".scss"]
   },
   postcss: function () {
